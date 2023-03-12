@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap'); /* імпортуємо шрифти */
+
+* { /* Даємо сторінці нашого сайту, яка має тег * значення, які збрасують усі параметри сторінки за замовчюванням ( Reset CSS ) */
+    margin: 0; /* margin - пересування нашого об'єкту у просторі блоку, у випадку сторінки збрасує пересування на 0 ( за замовчуванням сторінка має margin: 16px;) */
+    padding: 0; /* padding - оболочка нашого об'єкту. */
+    text-decoration: none; /* зброс стандартних стилів текст (не обов'язково, якщо це не потрібно) */
+    list-style: none; /* також не обов'язково, це збрасує пунктуацію для строкових елементів ul li */
+}
+
+body {
+    background-attachment: fixed; /* Даємо нашому фону фіксацію, щоб при скролі мишкою фон пересувавзя за нами по сторінці, а не залишався у верху, після чого шлаб пустота */
+}
+
+.container {
+    width: 1440px; /* присваюємо нашому блоку div з класом container ширину 1440px */
+    margin: 0 auto; /* Вирівнюємо наш блок по центу сторінки */
+    height: 100%; /* Даємо блоку висоту 100%, щоб висота адаптувалася під усі елементи створені у неї */
+}
+
+.headerText {
+    text-align: center; /* На текст не діє вирівнювання margin: 0 auto;, тому вирівнюємо його за топомогоою текстового пересування align по центру */
+    font-family: 'Montserrat', sans-serif; /* Присвоюємо тексту наш шрифт, та стандартний шрифт який замінить наш у випадку якщо наш шрифт не підтримується браузером користувача */
+    font-size: 40px; /* змінюємо розмір тексту */
+    color: #fff; /* Даємо колір тексту */
+    font-weight: 400; /* Даємо шрифту жирність 400, ябо іншу якщо ви її імпортували */
+    margin-top: 20px; /* пересуваємо текст від верху блоку вище на 20 пикселів */
+}
+
+.prewiewText {
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    color: #fff;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.blockButton {
+    width: 700px;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.buttonCodeClub {
+    margin: auto 0;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px; /* даємо блоку радіус кутів 10px */
+    background-color: transparent; /* Даэмо фону об'єкту прозорий  колір */
+    border: solid 1px rgba(255, 255, 255, 0.322); /* Даємо обводку блоку та змінюємо його товщину і колір */
+    color: rgba(255, 255, 255, 0.322); /* змінюємо колір для тексту у блоці */
+    transition: 0.4s; /* доодаємо плавності блоку (показано у ролику) */
+}
+
+.buttonCodeClub:hover { /* додаємо нашоому стилю блоку hover, тобто при наведенні на цей блок в нас будуть певні зміни у ньому (показано у ролику)  */
+    background-color: rgba(0, 177, 24, 0.781);
+    transition: 0.4s;
+    color: #fff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; /* Додаємо тінь нашому блоку */
+}
+
+.blockAdd {
+    display: flex; /* даємо значення flex, яке буде розставлять елементи у блоці по горизонтальній осі (За замовчуванням діє розтавлення по вертикалі ( display: block; ) ) */
+    justify-content: space-between; /* розподіляє контент у блоці по головної осі, у нашому випадку діє space-between, який розподіляє об'єкти у блоці рівномірно по усьоому блоку по горизонталі */
+    width: 700px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.589);
+    margin: 0 auto;
+    margin-top: 5px;
+    transition: 0.4s;
+}
+
+.inputAdd {
+    width: 300px;
+    height: 40px;
+    margin: auto 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none; /* видаляємо обводку, яка з'являється при натиску на поле ввооду тексту */
+    background-color: rgba(0, 0, 0, 0.719);
+    transition: 0.4s;
+}
+
+.inputAdd::placeholder { /* даємо стилі для placeholder, який застосовується у стилі блока inputAdd */
+    color: rgba(255, 255, 255, 0.37);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.inputAdd[type=text] { /* Даємо стилі тексту, який ми вводимо */
+    color: #fff;
+    padding: 0 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+}
+
+.buttonAdd {
+    width: 30px;
+    height: 30px;
+    margin: auto 0;
+    border-radius: 50px;
+    border: solid 1px rgba(255, 255, 255, 0.322);
+    color: rgba(255, 255, 255, 0.322);
+    background-color: transparent;
+    margin-right: 10px; /* пересуваємо блок від правого краю на 10 пикселів */
+    transition: 0.4s;
+}
+
+.blockAdd:hover {
+    background-color: rgba(255, 255, 255, 0.521);
+    transition: 0.4s;
+}
+
+.blockAdd:hover .inputAdd {
+    background-color: #fff;
+    transition: 0.4s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.blockAdd:hover .inputAdd::placeholder {
+    transition: 0.4s;
+    color: black;
+}
+
+.blockAdd:hover .inputAdd[type=text] {
+    color: #000;
+}
+
+.blockAdd:hover .buttonAdd {
+    border: solid 1px #000;
+    color: #000;
+    transition: 0.4s;
+}
+
+.blockAdd .buttonAdd:hover {
+    background-color: rgba(0, 177, 24, 0.781);
+    border: rgba(0, 177, 24, 0.781);;
+    color: #fff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    transition: 0.4s;
+}
+
+.cardTask {
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.726);
+}
+
+.textTask {
+    margin: auto 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.delTask {
+    margin: auto 0;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    border: none;
+    background-color: transparent;
+    transition: 0.4s;
+}
+
+.cardTask:hover {
+    background-color: #fff;
+    transition: 0.4s;
+}
+
+.delTask:hover {
+    background-color: rgba(209, 0, 0, 0.699);
+    color: #fff;
+    transition: 0.4s;
+}
+

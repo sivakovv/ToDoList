@@ -1,0 +1,81 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Document</title>
+</head>
+<body background="background.jpg"> <!-- Додаємо на фон нашої сторінки фон -->
+    <div class="container"> <!-- Створюємо блок та даємо йому класс, у якому будуть усі елементи для сайту. За стандартом його назва "container" -->
+        <div class="headerText"> <!-- Створюємо блок та присвоюємо йому класс для подальшого редагування -->
+            To-Do List <!-- Пишемо текст який присвоєний доо нашого блоку ( не обов'язково створювати блок для тексту, можна створювати текст за допомоогаю текстових тегів по типу "p", можете прочитати про текстові теги у інтернеті ) -->
+        </div> <!-- закриваємо наш блок -->
+        <div class="prewiewText"> <!-- Повторюємо дії з прошлим блоком, але міняємо назву стилю та пишимо потрібний текст -->
+            Курсова робота
+        </div>
+        <div class="blockButton"> <!-- Створюємо блок, у якому будуть зберігатися елементи у ньому, у нашому випадку кнопки (налаштування у css)  -->
+            <a href="https://chdtu.edu.ua/" target="_blank"> <!-- Створюємоо елемент a, якому даємо поосилання та таргет, який пересилає по посиланню у нову вкладку (по стандарту пересилаю у тієїж вкладці де ми і були) -->
+                <button class="buttonCodeClub"> <!-- створюємо кнопку, якій даємо класс -->
+                    4DTU <!-- Пишему текст, який буде показуватись у кнопці -->
+                </button>
+            </a>
+        </div>
+        <div class="blockAdd">
+            <input class="inputAdd" id="inputAdd" type="text" placeholder="Введіть задачу"> <!-- створюємо поле для введення тексту, даємо йому класс, індифікатор, у нашому випадку даємо йому тип text та додаємо placeholder, який буде показувати попередній текст у полі -->
+            <button class="buttonAdd" id="buttonAdd" onclick="buttonAdd()"> <!-- створюємо кнопку та даємо їй класс, індифікатор та функцію onclick, якої даємо назву з обов'язковоми дужками у кінці. Ця функція буде вікониватися при кліку по нашому об'єкту, тобто по кнопці -->
+                +
+            </button>
+        </div>
+        <div class="blockTask" id="blockTask"> <!-- створюємо блок у якому будуть наші нотатки та даємо йому класс і індифікатор  -->
+            <div class="cardTask" id="cardTask"> <!-- ствоорюємо блок самої картки нотатку -->
+                <div class="textTask"> <!-- створюємо блок для тексту у нотатку який буде потім дегадуватися за допомогою JavaScript -->
+                    Task one
+                </div>
+                <button class="delTask"> <!-- Створюємо кнопку, яка буде видаляти нашу карту за допомогоою JavaScri -->
+                    ✖
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function buttonAdd() {
+            const inputAdd = document.getElementById('inputAdd'); // Створюємо константу індифікатору input
+            
+            const textTask = inputAdd.value; // створюєму коонстанту тексту, та обозначаємо, що ця констанда дорівнює значенню константи inputAdd, у нашому випадку присваює текст, який був виведен у input.
+
+            if (!textTask) {
+                return; 
+            } // Якщо константа не бачить тексту - вона повертаєиться.
+
+            const cardTask = document.createElement('div');
+            cardTask.className = 'cardTask'; // Створюємо константу та створюємо для неї елемент div, якому присваюємо класс для визначення у css
+            
+            const taskName = document.createElement('div'); // Створюємо константу та новий елемент div
+            taskName.innerText = textTask; // Призначаємо константі значення константи textTask, у нашому випадку для виведення тексту з константи textTask
+            taskName.className = 'textTask';
+            cardTask.appendChild(taskName);
+
+            const deleteButton = document.createElement('button'); // Створюємо константу та новий елемент button
+            deleteButton.innerText = '✖'; // Призначаємо константі внутрішній текст.
+            deleteButton.className = 'delTask'; // Даємо константі класс 
+            deleteButton.addEventListener('click', () => { 
+                const blockTask = document.getElementById('blockTask');
+
+                blockTask.removeChild(event.target.parentElement);
+            }); // Додаємо подію, при якої при кліку на кнопку створюється родитель blockTask, та видаляє дочерній блок cardTask, тобто увесь створений нотаток.
+            cardTask.appendChild(deleteButton);
+
+            const blockTask = document.getElementById('blockTask'); // Створюємо константу для основної функції та даємо індивікатор 
+            blockTask.appendChild(cardTask); // Створюємо дочерній елемент cardTask до константи blockTask, тобто до родителя BlockTask
+
+            inputAdd.value = ''; // Після виконання функції - значення зміюється на чисте поле, у нашому випадку текст введений у input зникає при натиску на кнопку для відтворення функції.
+            inputAdd.focus(); // фукусуються на input поки елемент активний.
+        }
+    </script>
+        
+
+</body>
+</html>
